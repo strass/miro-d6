@@ -75,6 +75,7 @@ const createRoll = async ({ dice, position, effect }: IResults) => {
   if (dice === 0) {
     rolls = [rollDie(), rollDie()];
   }
+  console.log(dice, rolls);
   const rollWidget = (
     await miro.board.widgets.create({
       type: "text",
@@ -84,7 +85,6 @@ const createRoll = async ({ dice, position, effect }: IResults) => {
       scale: 18
     })
   )[0] as SDK.ITextWidget;
-  console.debug(rollWidget.bounds.bottom - rollWidget.bounds.top);
   return rollWidget;
 };
 

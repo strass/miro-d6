@@ -152,6 +152,7 @@ var createRoll = function (_a) {
                     if (dice === 0) {
                         rolls = [rollDie(), rollDie()];
                     }
+                    console.log(dice, rolls);
                     return [4 /*yield*/, miro.board.widgets.create({
                             type: "text",
                             text: position + " " + effect + ": " + rolls.join(", "),
@@ -161,7 +162,6 @@ var createRoll = function (_a) {
                         })];
                 case 3:
                     rollWidget = (_b.sent())[0];
-                    console.debug(rollWidget.bounds.bottom - rollWidget.bounds.top);
                     return [2 /*return*/, rollWidget];
             }
         });

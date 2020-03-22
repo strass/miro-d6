@@ -50,7 +50,7 @@
         "signature": "3e0a459888f32b42138d5a39f706ff2d55d500ab1031e0988b5568b0f67c2303"
       },
       "./index.ts": {
-        "version": "ba1a92bc88eb71f6fc0ee7dde1403ac308db820e077ae920d6d5f3a22abc5bae",
+        "version": "57acc940f6571c3df592c92698cd4b8125405607ec8182d31a62e8b6d9438625",
         "signature": "693db26654c8d7e7f85647b0a9abcb6d6d9cd48abe55ba3a314958b6f82fd720"
       },
       "./roll.ts": {
