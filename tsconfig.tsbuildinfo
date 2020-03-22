@@ -50,8 +50,8 @@
         "signature": "3e0a459888f32b42138d5a39f706ff2d55d500ab1031e0988b5568b0f67c2303"
       },
       "./index.ts": {
-        "version": "1bfca92b24c8c2db8ddbfa7b51234918a4777ee68a9f24a3adb88a9a68004759",
-        "signature": "5179efd75dc6273901e28f3aa173d1bd9c45db9b4fc8a16ac198823d8cff3eff"
+        "version": "165949acec037b8b66a7b05a2374f7c8a876edb442584ff1f04504643e5bce13",
+        "signature": "693db26654c8d7e7f85647b0a9abcb6d6d9cd48abe55ba3a314958b6f82fd720"
       },
       "./roll.ts": {
         "version": "0d7f8dd6dabbecc9d2944932d09457a68077020e3d6882398b624807fdb999db",
@@ -109,9 +109,9 @@
       "./node_modules/typescript/lib/lib.es2015.reflect.d.ts",
       "./node_modules/typescript/lib/lib.es2015.symbol.d.ts",
       "./node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts",
-      "./index.ts",
+      "./roll.ts",
       "./types/miro.d.ts",
-      "./roll.ts"
+      "./index.ts"
     ]
   },
   "version": "3.8.3"

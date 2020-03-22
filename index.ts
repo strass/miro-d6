@@ -3,6 +3,12 @@ const registeredMetadata = { [APP_ID]: { frame: true } };
 const DICE_ROLLER_NAME = "Dice Roller";
 let ROLL_HEIGHT = 648;
 
+interface IResults {
+  dice: number;
+  position: "RISKY" | "CONTROLLED" | "DESPARATE";
+  effect: "NONE" | "LOW" | "STANDARD" | "GREAT" | "EXTREME";
+}
+
 const getWidgetById = async (widgetId: string) => {
   return (await miro.board.widgets.get({ id: widgetId }))[0];
 };
@@ -62,13 +68,17 @@ const shiftChildren = async (frameId: string) => {
   });
 };
 
-const createRoll = async () => {
+const createRoll = async ({ dice, position, effect }: IResults) => {
   const frame = await findFrame();
   await shiftChildren(frame.id);
+  let rolls = new Array(dice).map(rollDie);
+  if (dice === 0) {
+    rolls = [rollDie(), rollDie()];
+  }
   const rollWidget = (
     await miro.board.widgets.create({
       type: "text",
-      text: `${rollDie()}`,
+      text: `${position} ${effect}: ${rolls.join(", ")}`,
       x: frame.bounds.left,
       y: frame.bounds.bottom,
       scale: 18
@@ -92,11 +102,10 @@ miro.onReady(() => {
         svgIcon:
           '<circle cx="12" cy="12" r="9" fill="none" fill-rule="evenodd" stroke="currentColor" stroke-width="2"/>',
         onClick: async () => {
-          createRoll();
-          const results = await miro.board.ui.openModal(
+          const results: IResults = await miro.board.ui.openModal(
             "https://master.d23i5muo4rlqip.amplifyapp.com/roll.html"
           );
-          console.log(results);
+          createRoll(results);
         }
       }
     }

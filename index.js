@@ -136,30 +136,37 @@ var shiftChildren = function (frameId) { return __awaiter(void 0, void 0, void 0
         }
     });
 }); };
-var createRoll = function () { return __awaiter(void 0, void 0, void 0, function () {
-    var frame, rollWidget;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0: return [4 /*yield*/, findFrame()];
-            case 1:
-                frame = _a.sent();
-                return [4 /*yield*/, shiftChildren(frame.id)];
-            case 2:
-                _a.sent();
-                return [4 /*yield*/, miro.board.widgets.create({
-                        type: "text",
-                        text: "" + rollDie(),
-                        x: frame.bounds.left,
-                        y: frame.bounds.bottom,
-                        scale: 18
-                    })];
-            case 3:
-                rollWidget = (_a.sent())[0];
-                console.debug(rollWidget.bounds.bottom - rollWidget.bounds.top);
-                return [2 /*return*/, rollWidget];
-        }
+var createRoll = function (_a) {
+    var dice = _a.dice, position = _a.position, effect = _a.effect;
+    return __awaiter(void 0, void 0, void 0, function () {
+        var frame, rolls, rollWidget;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0: return [4 /*yield*/, findFrame()];
+                case 1:
+                    frame = _b.sent();
+                    return [4 /*yield*/, shiftChildren(frame.id)];
+                case 2:
+                    _b.sent();
+                    rolls = new Array(dice).map(rollDie);
+                    if (dice === 0) {
+                        rolls = [rollDie(), rollDie()];
+                    }
+                    return [4 /*yield*/, miro.board.widgets.create({
+                            type: "text",
+                            text: position + " " + effect + ": " + rolls.join(", "),
+                            x: frame.bounds.left,
+                            y: frame.bounds.bottom,
+                            scale: 18
+                        })];
+                case 3:
+                    rollWidget = (_b.sent())[0];
+                    console.debug(rollWidget.bounds.bottom - rollWidget.bounds.top);
+                    return [2 /*return*/, rollWidget];
+            }
+        });
     });
-}); };
+};
 var rollDie = function (min, max) {
     if (min === void 0) { min = 1; }
     if (max === void 0) { max = 6; }
@@ -175,12 +182,10 @@ miro.onReady(function () {
                     var results;
                     return __generator(this, function (_a) {
                         switch (_a.label) {
-                            case 0:
-                                createRoll();
-                                return [4 /*yield*/, miro.board.ui.openModal("https://master.d23i5muo4rlqip.amplifyapp.com/roll.html")];
+                            case 0: return [4 /*yield*/, miro.board.ui.openModal("https://master.d23i5muo4rlqip.amplifyapp.com/roll.html")];
                             case 1:
                                 results = _a.sent();
-                                console.log(results);
+                                createRoll(results);
                                 return [2 /*return*/];
                         }
                     });
