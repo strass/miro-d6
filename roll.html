@@ -8,17 +8,18 @@
       type="text/css"
       href="https://miro.com/app/static/styles.1.0.css"
     />
-  </head>
-  <body>
-    <form
-      onsubmit="function submit(event) {
+    <script>
+      function submit(event) {
         console.log(event);
         event.preventDefault();
-        var position = document.getElementById('position').value;
-        console.log(val) 
-        miro.board.ui.closeModal({position})
-      }"
-    >
+        var position = document.getElementById("position").value;
+        console.log(val);
+        miro.board.ui.closeModal({ position });
+      }
+    </script>
+  </head>
+  <body>
+    <form onsubmit="submit">
       <label class="miro-radiobutton">
         <input type="radio" value="0" name="dice" checked />
         <span>Zero</span>
