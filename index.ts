@@ -75,10 +75,13 @@ const createRoll = async ({ dice, position, effect }: IResults) => {
   let rolls: number[] = [];
   console.log(rollsArr, rollsArr.length);
   if (dice === 0) {
+    console.log("1?");
     rolls = [rollDie(), rollDie()];
   } else {
+    console.log("2?");
     rolls = rollsArr.map(() => {
       const roll = rollDie();
+      console.log("!");
       console.log(roll);
       return roll;
     });
