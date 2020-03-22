@@ -14,47 +14,53 @@
     />
   </head>
   <body>
-    <form id="form">
-      <label class="miro-radiobutton">
-        <input type="radio" value="0" name="dice" checked />
-        <span>Zero</span>
-      </label>
-      <label class="miro-radiobutton">
-        <input type="radio" value="1" name="dice" />
-        <span>One</span>
-      </label>
-      <label class="miro-radiobutton">
-        <input type="radio" value="2" name="dice" />
-        <span>Two</span>
-      </label>
-      <label class="miro-radiobutton">
-        <input type="radio" value="3" name="dice" />
-        <span>Three</span>
-      </label>
-      <label class="miro-radiobutton">
-        <input type="radio" value="4" name="dice" />
-        <span>Four</span>
-      </label>
-      <label class="miro-radiobutton">
-        <input type="radio" value="5" name="dice" />
-        <span>Five</span>
-      </label>
-      <label class="miro-radiobutton">
-        <input type="radio" value="6" name="dice" />
-        <span>Six</span>
-      </label>
-
+    <form id="form" style="display:flex; flex-direction: column;">
+      <div>
+        <label class="miro-radiobutton">
+          <input type="radio" value="0" name="dice" checked />
+          <span>Zero</span>
+        </label>
+        <label class="miro-radiobutton">
+          <input type="radio" value="1" name="dice" />
+          <span>One</span>
+        </label>
+        <label class="miro-radiobutton">
+          <input type="radio" value="2" name="dice" />
+          <span>Two</span>
+        </label>
+        <label class="miro-radiobutton">
+          <input type="radio" value="3" name="dice" />
+          <span>Three</span>
+        </label>
+        <label class="miro-radiobutton">
+          <input type="radio" value="4" name="dice" />
+          <span>Four</span>
+        </label>
+        <label class="miro-radiobutton">
+          <input type="radio" value="5" name="dice" />
+          <span>Five</span>
+        </label>
+        <label class="miro-radiobutton">
+          <input type="radio" value="6" name="dice" />
+          <span>Six</span>
+        </label>
+      </div>
       <select
         class="miro-select miro-select--primary-bordered"
         id="position"
         name="position"
+        value="RISKY"
       >
         <option value="CONTROLLED">Controlled</option>
         <option value="RISKY">Risky</option>
         <option value="DESPARATE">Desparate</option>
       </select>
 
-      <select class="miro-select miro-select--primary-bordered" name="effect">
+      <select
+        class="miro-select miro-select--primary-bordered"
+        value="STANDARD"
+        name="effect"
+      >
         <option value="NONE">None</option>
         <option value="LOW">Low</option>
         <option value="STANDARD">Standard</option>
