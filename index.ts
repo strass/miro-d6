@@ -91,11 +91,12 @@ miro.onReady(() => {
         title: "Roll Dice",
         svgIcon:
           '<circle cx="12" cy="12" r="9" fill="none" fill-rule="evenodd" stroke="currentColor" stroke-width="2"/>',
-        onClick: () => {
+        onClick: async () => {
           createRoll();
-          miro.board.ui.openModal(
+          const results = await miro.board.ui.openModal(
             "https://master.d23i5muo4rlqip.amplifyapp.com/roll.html"
           );
+          console.log(results);
         }
       }
     }
