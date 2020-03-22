@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -35,12 +36,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var _a;
-var _this = this;
 var APP_ID = "DEV_TOOL_CONSOLE_PLUGIN_NAME";
 var registeredMetadata = (_a = {}, _a[APP_ID] = { frame: true }, _a);
 var DICE_ROLLER_NAME = "Dice Roller";
 var ROLL_HEIGHT = 648;
-var getWidgetById = function (widgetId) { return __awaiter(_this, void 0, void 0, function () {
+var getWidgetById = function (widgetId) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, miro.board.widgets.get({ id: widgetId })];
@@ -48,7 +48,7 @@ var getWidgetById = function (widgetId) { return __awaiter(_this, void 0, void 0
         }
     });
 }); };
-var findFrame = function () { return __awaiter(_this, void 0, void 0, function () {
+var findFrame = function () { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, miro.board.widgets.get({ title: DICE_ROLLER_NAME })];
@@ -56,7 +56,7 @@ var findFrame = function () { return __awaiter(_this, void 0, void 0, function (
         }
     });
 }); };
-var refreshFrame = function (frameId) { return __awaiter(_this, void 0, void 0, function () {
+var refreshFrame = function (frameId) { return __awaiter(void 0, void 0, void 0, function () {
     var frame;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -69,7 +69,7 @@ var refreshFrame = function (frameId) { return __awaiter(_this, void 0, void 0, 
         }
     });
 }); };
-var registerFrame = function (frameId) { return __awaiter(_this, void 0, void 0, function () {
+var registerFrame = function (frameId) { return __awaiter(void 0, void 0, void 0, function () {
     var frame, registeredFrame;
     var _a;
     return __generator(this, function (_b) {
@@ -97,7 +97,7 @@ var registerFrame = function (frameId) { return __awaiter(_this, void 0, void 0,
         }
     });
 }); };
-var getObjectsInFrame = function (frameWidgetOrId) { return __awaiter(_this, void 0, void 0, function () {
+var getObjectsInFrame = function (frameWidgetOrId) { return __awaiter(void 0, void 0, void 0, function () {
     var frame;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -112,7 +112,7 @@ var getObjectsInFrame = function (frameWidgetOrId) { return __awaiter(_this, voi
         }
     });
 }); };
-var shiftChildren = function (frameId) { return __awaiter(_this, void 0, void 0, function () {
+var shiftChildren = function (frameId) { return __awaiter(void 0, void 0, void 0, function () {
     var frame, childrenIds;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -136,7 +136,7 @@ var shiftChildren = function (frameId) { return __awaiter(_this, void 0, void 0,
         }
     });
 }); };
-var createRoll = function () { return __awaiter(_this, void 0, void 0, function () {
+var createRoll = function () { return __awaiter(void 0, void 0, void 0, function () {
     var frame, rollWidget;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -155,7 +155,7 @@ var createRoll = function () { return __awaiter(_this, void 0, void 0, function 
                     })];
             case 3:
                 rollWidget = (_a.sent())[0];
-                console.log(rollWidget.bounds.bottom - rollWidget.bounds.top);
+                console.debug(rollWidget.bounds.bottom - rollWidget.bounds.top);
                 return [2 /*return*/, rollWidget];
         }
     });
@@ -165,3 +165,16 @@ var rollDie = function (min, max) {
     if (max === void 0) { max = 6; }
     return Math.floor(Math.random() * (max - min + 1) + min);
 };
+miro.onReady(function () {
+    (miro.initialize || miro.initializeInner)({
+        extensionPoints: {
+            bottomBar: {
+                title: "Roll Dice",
+                svgIcon: '<circle cx="12" cy="12" r="9" fill="none" fill-rule="evenodd" stroke="currentColor" stroke-width="2"/>',
+                onClick: function () {
+                    alert("Hi!");
+                }
+            }
+        }
+    });
+});
