@@ -2,10 +2,23 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title></title>
+    <title>Roll Dice</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://miro.com/app/static/styles.1.0.css"
+    />
   </head>
   <body>
-    <form>
+    <form
+      onsubmit="function submit(event) {
+        console.log(event);
+        event.preventDefault();
+        var position = document.getElementById('position').value;
+        console.log(val) 
+        miro.board.ui.closeModal({position})
+      }"
+    >
       <label class="miro-radiobutton">
         <input type="radio" value="0" name="dice" checked />
         <span>Zero</span>
@@ -35,7 +48,11 @@
         <span>Six</span>
       </label>
 
-      <select class="miro-select miro-select--primary-bordered" name="position">
+      <select
+        class="miro-select miro-select--primary-bordered"
+        id="position"
+        name="position"
+      >
         <option value="CONTROLLED">Controlled</option>
         <option value="RISKY">Risky</option>
         <option value="DESPARATE">Desparate</option>
