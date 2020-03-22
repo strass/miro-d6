@@ -98,3 +98,7 @@ miro.onReady(() => {
     }
   });
 });
+
+(window as any).d6 = {
+  createRoll
+};

@@ -178,3 +178,6 @@ miro.onReady(function () {
         }
     });
 });
+window.d6 = {
+    createRoll: createRoll
+};
