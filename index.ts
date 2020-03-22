@@ -71,20 +71,12 @@ const shiftChildren = async (frameId: string) => {
 const createRoll = async ({ dice, position, effect }: IResults) => {
   const frame = await findFrame();
   await shiftChildren(frame.id);
-  const rollsArr = new Array(dice);
-  let rolls: number[] = [];
-  console.log(rollsArr, rollsArr.length);
+  let rolls: number[] = new Array(dice).fill(0);
   if (dice === 0) {
     console.log("1?");
     rolls = [rollDie(), rollDie()];
   } else {
-    console.log("2?");
-    rolls = rollsArr.map(() => {
-      const roll = rollDie();
-      console.log("!");
-      console.log(roll);
-      return roll;
-    });
+    rolls = rolls.map(() => rollDie());
   }
   console.log(dice, rolls);
   const rollWidget = (
