@@ -6,12 +6,13 @@ function submit(event: Event) {
   let dice = 0;
   document.getElementsByName("dice").forEach(dieEl => {
     const checked = (dieEl as HTMLInputElement).checked;
-    console.log((dieEl as HTMLInputElement).name, checked);
+    console.log((dieEl as HTMLInputElement).value, checked);
   });
   const positionDiv = document.getElementsByName("position").item(0);
   const position = (positionDiv as HTMLSelectElement).value;
   const effectDiv = document.getElementsByName("position").item(0);
   const effect = (effectDiv as HTMLSelectElement).value;
+  console.log(miro);
   miro.board.ui.closeModal({ position, effect, dice });
 }
 
