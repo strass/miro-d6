@@ -9,6 +9,8 @@
       href="https://miro.com/app/static/styles.1.0.css"
     />
     <script>
+      const form = document.getElementById("form");
+
       function submit(event) {
         console.log(event);
         event.preventDefault();
@@ -16,10 +18,12 @@
         console.log(val);
         miro.board.ui.closeModal({ position });
       }
+
+      form.onsubmit = submit;
     </script>
   </head>
   <body>
-    <form onsubmit="submit()">
+    <form>
       <label class="miro-radiobutton">
         <input type="radio" value="0" name="dice" checked />
         <span>Zero</span>
