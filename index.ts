@@ -1,4 +1,4 @@
-const APP_ID = "DEV_TOOL_CONSOLE_PLUGIN_NAME";
+const APP_ID = "3074457347394256683";
 const registeredMetadata = { [APP_ID]: { frame: true } };
 const DICE_ROLLER_NAME = "Dice Roller";
 let ROLL_HEIGHT = 648;
