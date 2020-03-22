@@ -53,6 +53,10 @@
         "version": "1bfca92b24c8c2db8ddbfa7b51234918a4777ee68a9f24a3adb88a9a68004759",
         "signature": "5179efd75dc6273901e28f3aa173d1bd9c45db9b4fc8a16ac198823d8cff3eff"
       },
+      "./roll.ts": {
+        "version": "d31f9cfbfc10629c111d47d80fccb7fabbf1bc5ff60e75508ad4355ec2b44ae3",
+        "signature": "bf98d658b88ac4ca625c9c38e007ec2aae122d3f6bf4830e8c4ec99d040c56e1"
+      },
       "./types/miro.d.ts": {
         "version": "8e3088f4906c3d12497539a5fa43c88fcccd03182a951cbe0fc5957a032eb647",
         "signature": "8e3088f4906c3d12497539a5fa43c88fcccd03182a951cbe0fc5957a032eb647"
@@ -66,6 +70,7 @@
         "lib.es2015.d.ts",
         "lib.dom.d.ts"
       ],
+      "rootDir": "./",
       "composite": true,
       "strict": true,
       "noImplicitAny": true,
@@ -92,6 +97,9 @@
     "referencedMap": {},
     "exportedModulesMap": {},
     "semanticDiagnosticsPerFile": [
+      "./roll.ts",
+      "./index.ts",
+      "./types/miro.d.ts",
       "./node_modules/typescript/lib/lib.es5.d.ts",
       "./node_modules/typescript/lib/lib.es2015.d.ts",
       "./node_modules/typescript/lib/lib.dom.d.ts",
@@ -103,9 +111,7 @@
       "./node_modules/typescript/lib/lib.es2015.proxy.d.ts",
       "./node_modules/typescript/lib/lib.es2015.reflect.d.ts",
       "./node_modules/typescript/lib/lib.es2015.symbol.d.ts",
-      "./node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts",
-      "./types/miro.d.ts",
-      "./index.ts"
+      "./node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts"
     ]
   },
   "version": "3.8.3"
