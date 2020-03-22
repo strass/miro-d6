@@ -171,13 +171,21 @@ miro.onReady(function () {
             bottomBar: {
                 title: "Roll Dice",
                 svgIcon: '<circle cx="12" cy="12" r="9" fill="none" fill-rule="evenodd" stroke="currentColor" stroke-width="2"/>',
-                onClick: function () {
-                    alert("Hi!");
-                }
+                onClick: function () { return __awaiter(void 0, void 0, void 0, function () {
+                    var results;
+                    return __generator(this, function (_a) {
+                        switch (_a.label) {
+                            case 0:
+                                createRoll();
+                                return [4 /*yield*/, miro.board.ui.openModal("https://master.d23i5muo4rlqip.amplifyapp.com/roll.html")];
+                            case 1:
+                                results = _a.sent();
+                                console.log(results);
+                                return [2 /*return*/];
+                        }
+                    });
+                }); }
             }
         }
     });
 });
-window.d6 = {
-    createRoll: createRoll
-};

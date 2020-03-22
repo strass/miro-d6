@@ -50,7 +50,7 @@
         "signature": "3e0a459888f32b42138d5a39f706ff2d55d500ab1031e0988b5568b0f67c2303"
       },
       "./index.ts": {
-        "version": "dcade6f4cb5933e303600667b25523ad0222170b52dcf1661c61d44ccd18eaac",
+        "version": "1bfca92b24c8c2db8ddbfa7b51234918a4777ee68a9f24a3adb88a9a68004759",
         "signature": "5179efd75dc6273901e28f3aa173d1bd9c45db9b4fc8a16ac198823d8cff3eff"
       },
       "./types/miro.d.ts": {
