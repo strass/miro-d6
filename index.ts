@@ -78,56 +78,53 @@ const createRoll = async ({ dice, position, effect }: IResults) => {
   } else {
     rolls = rolls.map(() => rollDie());
   }
-  console.log(dice, rolls);
-  const rollWidget = (
-    await miro.board.widgets.create([
-      {
-        type: "SHAPE",
-        width: frame.bounds.width,
-        height: 500,
-        style: {
-          shapeType: 3,
-          borderColor: "#f24726",
-          borderWidth: 16,
-          borderOpacity: 1,
-          borderStyle: 2
-        },
-        x: frame.bounds.x,
-        y: frame.bounds.bottom - 150
+  const rollWidgets = await miro.board.widgets.create([
+    {
+      type: "SHAPE",
+      width: frame.bounds.width,
+      height: 500,
+      style: {
+        shapeType: 3,
+        borderColor: "#f24726",
+        borderWidth: 16,
+        borderOpacity: 1,
+        borderStyle: 2
       },
-      {
-        type: "text",
-        text: rolls.join(", "),
-        x: frame.bounds.x,
-        y: frame.bounds.bottom - 20,
-        scale: 18,
-        style: {
-          fontFamily: "Permanent Marker"
-        }
-      },
-      {
-        type: "text",
-        text: position,
-        x: frame.bounds.x - 750,
-        y: frame.bounds.bottom - 250,
-        scale: 14,
-        style: {
-          fontFamily: 3
-        }
-      },
-      {
-        type: "text",
-        text: effect,
-        x: frame.bounds.x - 750,
-        y: frame.bounds.bottom - 150,
-        scale: 14,
-        style: {
-          fontFamily: 3
-        }
+      x: frame.bounds.x,
+      y: frame.bounds.bottom - 250
+    },
+    {
+      type: "text",
+      text: rolls.join(", "),
+      x: frame.bounds.x,
+      y: frame.bounds.bottom - 20,
+      scale: 18,
+      style: {
+        fontFamily: "Permanent Marker"
       }
-    ])
-  )[0] as SDK.ITextWidget;
-  return rollWidget;
+    },
+    {
+      type: "text",
+      text: position,
+      x: frame.bounds.x - 1000,
+      y: frame.bounds.bottom - 250,
+      scale: 14,
+      style: {
+        fontFamily: 3
+      }
+    },
+    {
+      type: "text",
+      text: effect,
+      x: frame.bounds.x - 1000,
+      y: frame.bounds.bottom - 100,
+      scale: 14,
+      style: {
+        fontFamily: 3
+      }
+    }
+  ]);
+  return rollWidgets;
 };
 
 const rollDie = (min = 1, max = 6) => {
