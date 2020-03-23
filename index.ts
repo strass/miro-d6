@@ -73,7 +73,6 @@ const createRoll = async ({ dice, position, effect }: IResults) => {
   await shiftChildren(frame.id);
   let rolls: number[] = new Array(dice).fill(0);
   if (dice === 0) {
-    console.log("1?");
     rolls = [rollDie(), rollDie()];
   } else {
     rolls = rolls.map(() => rollDie());
@@ -118,6 +117,8 @@ const createRoll = async ({ dice, position, effect }: IResults) => {
       throw new Error(`Received bad highestDie: '${highestDie}'`);
   }
 
+  console.log(highestDie, borderColor);
+
   const rollWidgets = await miro.board.widgets.create([
     {
       type: "SHAPE",
@@ -125,7 +126,7 @@ const createRoll = async ({ dice, position, effect }: IResults) => {
       height: BOUNDS_HEIGHT,
       style: {
         shapeType: 3,
-        borderColor,
+        borderColor: borderColor,
         borderWidth: 16,
         borderOpacity: 1,
         borderStyle: 2
