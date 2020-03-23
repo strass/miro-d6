@@ -5,7 +5,7 @@ let ROLL_HEIGHT = 648;
 
 interface IResults {
   dice: number;
-  position: "RISKY" | "CONTROLLED" | "DESPARATE";
+  position: "RISKY" | "CONTROLLED" | "DESPERATE";
   effect: "NONE" | "LOW" | "STANDARD" | "GREAT" | "EXTREME";
 }
 
@@ -80,13 +80,49 @@ const createRoll = async ({ dice, position, effect }: IResults) => {
   }
   console.log(dice, rolls);
   const rollWidget = (
-    await miro.board.widgets.create({
-      type: "text",
-      text: `${position} ${effect}: ${rolls.join(", ")}`,
-      x: frame.bounds.left,
-      y: frame.bounds.bottom,
-      scale: 18
-    })
+    await miro.board.widgets.create([
+      {
+        type: "SHAPE",
+        width: frame.bounds.width,
+        height: 500,
+        style: {
+          shapeType: 3,
+          borderColor: "#f24726",
+          borderWidth: 16,
+          borderOpacity: 1,
+          borderStyle: 2
+        },
+        x: frame.bounds.x,
+        y: frame.bounds.bottom - 20
+      },
+      {
+        type: "text",
+        text: `${position} ${effect}: ${rolls.join(", ")}`,
+        x: frame.bounds.x,
+        y: frame.bounds.bottom - 20,
+        scale: 18
+      },
+      {
+        type: "text",
+        text: position,
+        x: frame.bounds.x - 200,
+        y: frame.bounds.bottom - 5,
+        scale: 16,
+        style: {
+          fontFamily: "Bangers"
+        }
+      },
+      {
+        type: "text",
+        text: effect,
+        x: frame.bounds.x - 200,
+        y: frame.bounds.bottom - 15,
+        scale: 14,
+        style: {
+          fontFamily: "Bangers"
+        }
+      }
+    ])
   )[0] as SDK.ITextWidget;
   return rollWidget;
 };

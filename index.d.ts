@@ -8,7 +8,7 @@ declare const DICE_ROLLER_NAME = "Dice Roller";
 declare let ROLL_HEIGHT: number;
 interface IResults {
     dice: number;
-    position: "RISKY" | "CONTROLLED" | "DESPARATE";
+    position: "RISKY" | "CONTROLLED" | "DESPERATE";
     effect: "NONE" | "LOW" | "STANDARD" | "GREAT" | "EXTREME";
 }
 declare const getWidgetById: (widgetId: string) => Promise<SDK.IWidget>;
