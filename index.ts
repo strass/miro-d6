@@ -98,7 +98,24 @@ const createRoll = async ({ dice, position, effect }: IResults) => {
     },
     {
       type: "text",
-      text: rolls.join(", "),
+      text: `<p>${(rolls as any[])
+        .map((n: 1 | 2 | 3 | 4 | 5 | 6) => {
+          switch (n) {
+            case 1:
+              return `<span style="color: grey;">${n}</span>`;
+            case 2:
+              return `<span style="color: grey;">${n}</span>`;
+            case 3:
+              return `<span style="color: grey;">${n}</span>`;
+            case 4:
+              return `<span style="color: green;">${n}</span>`;
+            case 5:
+              return `<span style="color: green;">${n}</span>`;
+            case 6:
+              return `<span style="color: blue;">${n}</span>`;
+          }
+        })
+        .join(", ")}</p>`,
       x: frame.bounds.x + 660,
       y: HALF_BOUNDS_Y,
       scale: 18,
