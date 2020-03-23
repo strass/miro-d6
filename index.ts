@@ -104,20 +104,18 @@ const createRoll = async ({ dice, position, effect }: IResults) => {
     case 1:
     case 2:
     case 3:
-      borderColor = "grey";
+      borderColor = "#1a1a1a";
       break;
     case 4:
     case 5:
-      borderColor = "green";
+      borderColor = "#00ff00";
       break;
     case 6:
-      borderColor = "blue";
+      borderColor = "0000ff";
       break;
     default:
       throw new Error(`Received bad highestDie: '${highestDie}'`);
   }
-
-  console.log(highestDie, borderColor);
 
   const rollWidgets = await miro.board.widgets.create([
     {
