@@ -113,10 +113,11 @@ const createRoll = async ({ dice, position, effect }: IResults) => {
       text: position,
       // width: BOUNDS_WIDTH / 2,
       x: frame.bounds.left + BOUNDS_WIDTH / 4,
-      y: HALF_BOUNDS_Y - BOUNDS_HEIGHT / 4,
+      y: HALF_BOUNDS_Y - BOUNDS_HEIGHT / 4 + 14 * 2,
       scale: 14,
       style: {
-        fontFamily: 3
+        fontFamily: 3,
+        textAlign: "c"
       }
     },
     {
@@ -124,10 +125,11 @@ const createRoll = async ({ dice, position, effect }: IResults) => {
       text: effect,
       // width: BOUNDS_WIDTH / 2,
       x: frame.bounds.left + BOUNDS_WIDTH / 4,
-      y: HALF_BOUNDS_Y + BOUNDS_HEIGHT / 4,
+      y: HALF_BOUNDS_Y + BOUNDS_HEIGHT / 4 + 14 * 2,
       scale: 14,
       style: {
-        fontFamily: 3
+        fontFamily: 3,
+        textAlign: "c"
       }
     }
   ]);
