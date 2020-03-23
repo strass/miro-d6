@@ -97,10 +97,13 @@ const createRoll = async ({ dice, position, effect }: IResults) => {
       },
       {
         type: "text",
-        text: `${position} ${effect}: ${rolls.join(", ")}`,
+        text: rolls.join(", "),
         x: frame.bounds.x,
         y: frame.bounds.bottom - 20,
-        scale: 18
+        scale: 18,
+        style: {
+          fontFamily: "Permanent Marker"
+        }
       },
       {
         type: "text",
