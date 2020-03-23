@@ -100,20 +100,54 @@ const createRoll = async ({ dice, position, effect }: IResults) => {
       type: "text",
       text: `<p>${(rolls as any[])
         .map((d: 1 | 2 | 3 | 4 | 5 | 6, idx, arr) => {
+          let strikethrough = false;
+          let color = "grey";
+          if (dice === 0) {
+            if (idx === 0) {
+              if (d >= arr[1]) {
+                strikethrough = true;
+              }
+            } else {
+              if (d > arr[0]) {
+                strikethrough = true;
+              }
+            }
+          }
           const n = `${d}${idx !== arr.length - 1 ? ", " : ""}`;
           switch (d) {
             case 1:
-              return `<span style="color: grey;">${n}</span>`;
+              return `<span style="color: ${color};">${
+                strikethrough ? `<s>${n}</s>` : `${n}`
+              }</span>`;
             case 2:
-              return `<span style="color: grey;">${n}</span>`;
+              return `<span style="color: ${color};">${
+                strikethrough ? `<s>${n}</s>` : `${n}`
+              }</span>`;
             case 3:
-              return `<span style="color: grey;">${n}</span>`;
+              return `<span style="color: ${color};">${
+                strikethrough ? `<s>${n}</s>` : `${n}`
+              }</span>`;
             case 4:
-              return `<span style="color: green;">${n}</span>`;
+              if (!strikethrough) {
+                color = "green";
+              }
+              return `<span style="color: ${color};">${
+                strikethrough ? `<s>${n}</s>` : `${n}`
+              }</span>`;
             case 5:
-              return `<span style="color: green;">${n}</span>`;
+              if (!strikethrough) {
+                color = "green";
+              }
+              return `<span style="color: ${color};">${
+                strikethrough ? `<s>${n}</s>` : `${n}`
+              }</span>`;
             case 6:
-              return `<span style="color: blue;">${n}</span>`;
+              if (!strikethrough) {
+                color = "blue";
+              }
+              return `<span style="color: ${color};">${
+                strikethrough ? `<s>${n}</s>` : `${n}`
+              }</span>`;
           }
         })
         .join("")}</p>`,
