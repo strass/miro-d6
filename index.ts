@@ -100,6 +100,7 @@ const createRoll = async ({ dice, position, effect }: IResults) => {
       type: "text",
       text: `<p>${(rolls as any[])
         .map((d: 1 | 2 | 3 | 4 | 5 | 6, idx, arr) => {
+          const needsComma = idx !== arr.length - 1;
           let strikethrough = false;
           let color = "grey";
           if (dice === 0) {
@@ -113,40 +114,51 @@ const createRoll = async ({ dice, position, effect }: IResults) => {
               }
             }
           }
-          const n = `${d}${idx !== arr.length - 1 ? ", " : ""}`;
           switch (d) {
             case 1:
               return `<span style="color: ${color};">${
-                strikethrough ? `<s>${n}</s>` : `${n}`
+                strikethrough
+                  ? `<s>${d}</s>${needsComma ? ", " : ""}`
+                  : `${d}${needsComma ? ", " : ""}`
               }</span>`;
             case 2:
               return `<span style="color: ${color};">${
-                strikethrough ? `<s>${n}</s>` : `${n}`
+                strikethrough
+                  ? `<s>${d}</s>${needsComma ? ", " : ""}`
+                  : `${d}${needsComma ? ", " : ""}`
               }</span>`;
             case 3:
               return `<span style="color: ${color};">${
-                strikethrough ? `<s>${n}</s>` : `${n}`
+                strikethrough
+                  ? `<s>${d}</s>${needsComma ? ", " : ""}`
+                  : `${d}${needsComma ? ", " : ""}`
               }</span>`;
             case 4:
               if (!strikethrough) {
                 color = "green";
               }
               return `<span style="color: ${color};">${
-                strikethrough ? `<s>${n}</s>` : `${n}`
+                strikethrough
+                  ? `<s>${d}</s>${needsComma ? ", " : ""}`
+                  : `${d}${needsComma ? ", " : ""}`
               }</span>`;
             case 5:
               if (!strikethrough) {
                 color = "green";
               }
               return `<span style="color: ${color};">${
-                strikethrough ? `<s>${n}</s>` : `${n}`
+                strikethrough
+                  ? `<s>${d}</s>${needsComma ? ", " : ""}`
+                  : `${d}${needsComma ? ", " : ""}`
               }</span>`;
             case 6:
               if (!strikethrough) {
                 color = "blue";
               }
               return `<span style="color: ${color};">${
-                strikethrough ? `<s>${n}</s>` : `${n}`
+                strikethrough
+                  ? `<s>${n}</s>${needsComma ? ", " : ""}`
+                  : `${n}${needsComma ? ", " : ""}`
               }</span>`;
           }
         })
