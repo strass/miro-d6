@@ -78,11 +78,14 @@ const createRoll = async ({ dice, position, effect }: IResults) => {
   } else {
     rolls = rolls.map(() => rollDie());
   }
+  const BOUNDS_WIDTH = frame.bounds.width;
+  const BOUNDS_HEIGHT = 500;
+  const HALF_BOUNDS_Y = frame.bounds.bottom - BOUNDS_HEIGHT / 2;
   const rollWidgets = await miro.board.widgets.create([
     {
       type: "SHAPE",
-      width: frame.bounds.width,
-      height: 500,
+      width: BOUNDS_WIDTH,
+      height: BOUNDS_HEIGHT,
       style: {
         shapeType: 3,
         borderColor: "#f24726",
@@ -91,13 +94,13 @@ const createRoll = async ({ dice, position, effect }: IResults) => {
         borderStyle: 2
       },
       x: frame.bounds.x,
-      y: frame.bounds.bottom - 250
+      y: HALF_BOUNDS_Y
     },
     {
       type: "text",
       text: rolls.join(", "),
       x: frame.bounds.x + 660,
-      y: frame.bounds.bottom - 250,
+      y: HALF_BOUNDS_Y,
       scale: 18,
       width: 100,
       style: {
@@ -108,8 +111,9 @@ const createRoll = async ({ dice, position, effect }: IResults) => {
     {
       type: "text",
       text: position,
-      x: frame.bounds.x - 1000,
-      y: frame.bounds.bottom - 335,
+      width: BOUNDS_WIDTH / 2,
+      x: frame.bounds.left + BOUNDS_WIDTH / 4,
+      y: HALF_BOUNDS_Y - BOUNDS_HEIGHT / 4,
       scale: 14,
       style: {
         fontFamily: 3
@@ -118,8 +122,9 @@ const createRoll = async ({ dice, position, effect }: IResults) => {
     {
       type: "text",
       text: effect,
-      x: frame.bounds.x - 1000,
-      y: frame.bounds.bottom - 110,
+      width: BOUNDS_WIDTH / 2,
+      x: frame.bounds.left + BOUNDS_WIDTH / 4,
+      y: HALF_BOUNDS_Y + BOUNDS_HEIGHT / 4,
       scale: 14,
       style: {
         fontFamily: 3
