@@ -158,6 +158,9 @@ const createRoll = async ({ dice, position, effect }: IResults) => {
       style: {
         fontFamily: 11,
         textAlign: "r"
+      },
+      capabilities: {
+        editable: false
       }
     },
     {
