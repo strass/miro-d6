@@ -99,15 +99,17 @@ const createRoll = async ({ dice, position, effect }: IResults) => {
       x: frame.bounds.x,
       y: frame.bounds.bottom - 20,
       scale: 18,
+      width: 100,
       style: {
-        fontFamily: "Permanent Marker"
+        fontFamily: 11,
+        textAlign: "r"
       }
     },
     {
       type: "text",
       text: position,
       x: frame.bounds.x - 1000,
-      y: frame.bounds.bottom - 250,
+      y: frame.bounds.bottom - 350,
       scale: 14,
       style: {
         fontFamily: 3
@@ -117,7 +119,7 @@ const createRoll = async ({ dice, position, effect }: IResults) => {
       type: "text",
       text: effect,
       x: frame.bounds.x - 1000,
-      y: frame.bounds.bottom - 100,
+      y: frame.bounds.bottom - 125,
       scale: 14,
       style: {
         fontFamily: 3
