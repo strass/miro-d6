@@ -93,14 +93,14 @@ const createRoll = async ({ dice, position, effect }: IResults) => {
         borderOpacity: 1,
         borderStyle: 2
       },
-      x: frame.bounds.x,
+      x: frame.bounds.x, // centered X
       y: HALF_BOUNDS_Y
     },
     {
       type: "text",
       text: `<p>${(rolls as any[])
         .map((d: 1 | 2 | 3 | 4 | 5 | 6, idx, arr) => {
-          const n = `${d}${idx === arr.length - 1 ? ", " : ""}`;
+          const n = `${d}${idx !== arr.length - 1 ? ", " : ""}`;
           switch (d) {
             case 1:
               return `<span style="color: grey;">${n}</span>`;
@@ -117,7 +117,7 @@ const createRoll = async ({ dice, position, effect }: IResults) => {
           }
         })
         .join("")}</p>`,
-      x: frame.bounds.x + 660,
+      x: frame.bounds.x + 600 + 100 / 2 + 10,
       y: HALF_BOUNDS_Y,
       scale: 18,
       width: 100,
@@ -129,8 +129,8 @@ const createRoll = async ({ dice, position, effect }: IResults) => {
     {
       type: "text",
       text: position,
-      width: BOUNDS_WIDTH / 3,
-      x: frame.bounds.left + BOUNDS_WIDTH / 6,
+      width: 1000,
+      x: frame.bounds.left + 1000 / 2,
       y: HALF_BOUNDS_Y - BOUNDS_HEIGHT / 4 + 16 * 2,
       scale: 14,
       style: {
@@ -141,8 +141,8 @@ const createRoll = async ({ dice, position, effect }: IResults) => {
     {
       type: "text",
       text: effect,
-      width: BOUNDS_WIDTH / 3,
-      x: frame.bounds.left + BOUNDS_WIDTH / 6,
+      width: 1000,
+      x: frame.bounds.left + 1000 / 2,
       y: HALF_BOUNDS_Y + BOUNDS_HEIGHT / 4 + 16 * 2,
       scale: 14,
       style: {
