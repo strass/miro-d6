@@ -223,6 +223,7 @@ const rollDie = (min = 1, max = 6) => {
 };
 
 miro.onReady(() => {
+  // Not sure what's going on here?
   (
     miro.initialize || ((miro as any).initializeInner as typeof miro.initialize)
   )({
