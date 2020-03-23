@@ -96,8 +96,8 @@ const createRoll = async ({ dice, position, effect }: IResults) => {
     {
       type: "text",
       text: rolls.join(", "),
-      x: frame.bounds.x,
-      y: frame.bounds.bottom - 20,
+      x: frame.bounds.x + 660,
+      y: frame.bounds.bottom - 250,
       scale: 18,
       width: 100,
       style: {
