@@ -81,6 +81,43 @@ const createRoll = async ({ dice, position, effect }: IResults) => {
   const BOUNDS_WIDTH = frame.bounds.width;
   const BOUNDS_HEIGHT = 500;
   const HALF_BOUNDS_Y = frame.bounds.bottom - BOUNDS_HEIGHT / 2;
+
+  const highestDie = rolls.reduce((acc, d, idx, arr) => {
+    if (dice === 0) {
+      if (idx === 0) {
+        if (d >= arr[1]) {
+          return arr[1];
+        } else {
+          return d > acc ? d : acc;
+        }
+      } else {
+        if (d > arr[0]) {
+          return arr[1];
+        } else {
+          return d > acc ? d : acc;
+        }
+      }
+    }
+    return d > acc ? d : acc;
+  }, 0);
+  let borderColor: string;
+  switch (highestDie) {
+    case 1:
+    case 2:
+    case 3:
+      borderColor = "grey";
+      break;
+    case 4:
+    case 5:
+      borderColor = "green";
+      break;
+    case 6:
+      borderColor = "blue";
+      break;
+    default:
+      throw new Error(`Received bad highestDie: '${highestDie}'`);
+  }
+
   const rollWidgets = await miro.board.widgets.create([
     {
       type: "SHAPE",
