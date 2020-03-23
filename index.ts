@@ -125,7 +125,7 @@ const createRoll = async ({ dice, position, effect }: IResults) => {
       height: BOUNDS_HEIGHT,
       style: {
         shapeType: 3,
-        borderColor: "#f24726",
+        borderColor,
         borderWidth: 16,
         borderOpacity: 1,
         borderStyle: 2
