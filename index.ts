@@ -111,7 +111,7 @@ const createRoll = async ({ dice, position, effect }: IResults) => {
       borderColor = "#00ff00";
       break;
     case 6:
-      borderColor = "0000ff";
+      borderColor = "#0000ff";
       break;
     default:
       throw new Error(`Received bad highestDie: '${highestDie}'`);
