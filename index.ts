@@ -116,51 +116,30 @@ const createRoll = async ({ dice, position, effect }: IResults) => {
           }
           switch (d) {
             case 1:
-              return `<span style="color: ${color};">${
-                strikethrough
-                  ? `<s>${d}</s>${needsComma ? ", " : ""}`
-                  : `${d}${needsComma ? ", " : ""}`
-              }</span>`;
             case 2:
-              return `<span style="color: ${color};">${
-                strikethrough
-                  ? `<s>${d}</s>${needsComma ? ", " : ""}`
-                  : `${d}${needsComma ? ", " : ""}`
-              }</span>`;
             case 3:
-              return `<span style="color: ${color};">${
-                strikethrough
-                  ? `<s>${d}</s>${needsComma ? ", " : ""}`
-                  : `${d}${needsComma ? ", " : ""}`
-              }</span>`;
+              break;
             case 4:
               if (!strikethrough) {
                 color = "green";
               }
-              return `<span style="color: ${color};">${
-                strikethrough
-                  ? `<s>${d}</s>${needsComma ? ", " : ""}`
-                  : `${d}${needsComma ? ", " : ""}`
-              }</span>`;
+              break;
             case 5:
               if (!strikethrough) {
                 color = "green";
               }
-              return `<span style="color: ${color};">${
-                strikethrough
-                  ? `<s>${d}</s>${needsComma ? ", " : ""}`
-                  : `${d}${needsComma ? ", " : ""}`
-              }</span>`;
+              break;
             case 6:
               if (!strikethrough) {
                 color = "blue";
               }
-              return `<span style="color: ${color};">${
-                strikethrough
-                  ? `<s>${n}</s>${needsComma ? ", " : ""}`
-                  : `${n}${needsComma ? ", " : ""}`
-              }</span>`;
+              break;
           }
+          return `<span style="color: ${color};">${
+            strikethrough
+              ? `<s>${d}</s>${needsComma ? ", " : ""}`
+              : `${d}${needsComma ? ", " : ""}`
+          }</span>`;
         })
         .join("")}</p>`,
       x: frame.bounds.x + 600 + 100 / 2 + 10,
